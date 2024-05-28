@@ -167,7 +167,28 @@ Der Thread-Scheduler kann im Kernel oder im Benutzermodus laufen:
 |        |                                                          |                                                     |
 | Contra | Umgang mit blockierenden Systemaufrufen                  | Höhere Kosten bei Threadwechsel                     |
 |        | Ein Thread kann den gesamten Prozess blockieren          | Umngang mit Signalen                                |
-|        | Threads sollen Programme ermöglichen, die oft blockieren | |
+|        | Threads sollen Programme ermöglichen, die oft blockieren |                                                     |
+
+:bulb: Threads werden meist im Kernmodus realisiert!
+
+## Threadwechsel
+
+... erfolgt immer, wenn BS die Kontrolle erhält:
+
+- Systemaufrufen
+- Interrupts
+- Ausnahmebehandlungen
+
+Scheduler des BS entscheidet, welcher Thread als nächstes läuft.
+
+# Vergleich Prozesse und Threads
+
+- Prozess ist eine Einheit der Ressourcenverwaltung, Schutzeinheit
+  - Adressraum, geöffnete Dateien, Signale, Prioritäten, ...
+- Thread ist eine Einheit der Prozessorzuteilung
+  - Befehlszähler, Register, Stack, Zustand, ...
+
+:arrow_right: mehrere Threads pro Prozess möglich
 
 # Interprozess-Kommunikation
 

@@ -2,7 +2,7 @@
 
 ## Kapitel 01
 
-Inhalt:
+**Inhalt:**
 
 - Einführung in Betriebssysteme
 - Aufgaben des Betriebssystems
@@ -11,8 +11,41 @@ Inhalt:
 - Systemaufrufe
 - C und Betriebssysteme
 
-[LINK](01_EinfuerungBetriebssysteme.md)
+[LINK](01-EinfuerungBetriebssysteme.md)
 
 ## Kapitel 02
 
-[LINK](02_ProzesseThreads.md)
+**Inhalt:**
+
+- Prozesse
+- Threads
+- Interprozesskommunikation
+- Wechselseitiger Ausschluss
+- Erzeuger-Verbraucher-Problem
+- Semaphoren/ Mutex
+- Monitor
+- Nachrichtenaustausch (verteilte Systeme)
+
+[LINK](02-ProzesseThreads.md)
+
+## Kapitel 03
+
+**Inhalt:**
+
+- Scheduling
+- Deadlocks
+- Vorbeugen von Deadlocks
+
+[LINK](03-SchedulingDeadlocks.md)
+
+## Kapitel 04
+
+[LINK](04-Speicherverwaltung.md)
+
+## Kapitel 05
+
+[LINK](05-DateienDateisysteme.md)
+
+## Kapitel 06
+
+[LINK](06-IO-Hardware.md)

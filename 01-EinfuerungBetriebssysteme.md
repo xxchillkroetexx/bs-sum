@@ -16,24 +16,24 @@ Erkennungsmerkmal des Betriebssystems: Es läuft im Kernmodus.
      - Anwender sieht bspw. nur "Festplatte".
    - Einheitliche Sicht für Anwendungen:
      - Digitalkamera und CD werden gleich verwaltet
-   - :bulb: Betriebssystem realisiert eine "Virtuelle Maschine"
+   - 💡 Betriebssystem realisiert eine "Virtuelle Maschine"
 
 2. Verwaltung der Ressourcen:
    - Anwendung braucht Ressourcen für Ausführung
    - Im Mehrprozess- und Mehrbenutzerbetrieb laufen mehrere Anwendungen "gleichzeitig"
-   - :bulb: Betriebssystem verteilt Ressourcen gerecht und sichert die Anwendungen und Benutzer gegeneinander
+   - 💡: Betriebssystem verteilt Ressourcen gerecht und sichert die Anwendungen und Benutzer gegeneinander
      - Zeitliches Multiplexing: CPU ("einer nach dem anderen")
      - Räumliches Multiplexing: Arbeitsspeicher ("ein Teil für dich, ein Teil für mich")
 
-### :arrow_right: Betriebssystem ist "Mittler" zw. Anwendung und Hardware
+### ➡Betriebssystem ist "Mittler" zw. Anwendung und Hardware
 
 ![abstraktes Modell Betriebssystem](img/abstraktes_computer_modell.png)
 
-Anwendungen können nicht direkt auf Hardware zugreifen :arrow_right: Sicherheit (als Nebenprodukt der Verwaltung)
+Anwendungen können nicht direkt auf Hardware zugreifen ➡Sicherheit (als Nebenprodukt der Verwaltung)
 
 # Überblick Computer-Hardware
 
-![Computerhardware am Bus](/img/hardware_am_bus.png)
+![Computerhardware am Bus](img/hardware_am_bus.png)
 
 Betriebssystem <u><b>muss</b></u> Details der Hardware kennen
 
@@ -76,7 +76,7 @@ Bei Ausführung eines Systemaufrufs:
 4. BS analysiert Art des Systemaufrufs und führt den Aufruf aus
 5. Rückkehrbefehl schaltet wieder in den Benutzermodus
 
-:bulb: Auch andere Unterbrechungen erfordern das BS zu handeln, diese Unterbrechungen zu lösen:
+💡Auch andere Unterbrechungen erfordern das BS zu handeln, diese Unterbrechungen zu lösen:
 
 - Interrupts (durch Hardware erzeugt)
 - Exceptions (durch Programmfehler)
@@ -142,20 +142,20 @@ Bei transientem (flüchtigem) Speicher gehen die Daten beim Ausschalten verloren
 - Separater E/A-Adressraum
   - Zugriff auf Controller-Register nur über spezielle (privilegierte) E/A-Befehle
 
-:bulb: Sowohl Speicherbasierte E/A als auch die Separaten E/A-Adressräume sind im Einsatz
+💡 Sowohl Speicherbasierte E/A als auch die Separaten E/A-Adressräume sind im Einsatz
 
 ### Arten der Ein- und Ausgabe
 
 1. Aktives Warten (active wait)
    - System wartet in Endlosschleife, bis die E/A-Operation zu Ende ist
    - Nachteil:
-     - :bulb: CPU wartet aktiv
+     - 💡 CPU wartet aktiv
      - CPU kann für <u>keine weiteren Aufgaben</u> verwendet werden
 2. Interrupt
    1. Wenn Controller fertig ist, sendet er ein Signal an den Interruptcontroller
    2. BS behandelt Interrupt
    3. danach wieder umschalten in den Benutzermodus
-   - :bulb:Hauptanwendung: Ein-/Ausgabe
+   - 💡Hauptanwendung: Ein-/Ausgabe
 3. DMA-Chip (Direkt Memory Access)
    - regelt Datenfluss zwischen Controller und Speicher ohne CPU
    - Initialisierung durch CPU ("Wie viele Bits wohin?")
@@ -167,7 +167,7 @@ Bei transientem (flüchtigem) Speicher gehen die Daten beim Ausschalten verloren
 
 ![Überblick zu Bus-Systemen](img/bus_systeme.png)
 
-:bulb: Betriebssystem muss unterschiedliche Geschwindigkeiten berücksichtigen
+💡 Betriebssystem muss unterschiedliche Geschwindigkeiten berücksichtigen
 
 # Betriebssystemkonzepte
 
@@ -200,7 +200,7 @@ Beim Anhalten des Prozesses wird dieser in den Stack gespeichert und eine Behand
 
 ### Sicherheit
 
-Prozesse werden von Benutzern gestartet :arrow_right: Benutzer-ID wird gespeichert und entsprechend verknüpft.
+Prozesse werden von Benutzern gestartet ➡ Benutzer-ID wird gespeichert und entsprechend verknüpft.
 
 Das BS verhindert Zugriff auf Prozesse von anderen Benutzern.
 
@@ -261,7 +261,7 @@ Aufbau:
 
 Die Pipe ermöglicht eine Kommunikation zwischen Prozessen. Die Richtung ist allerdings nur einseitig möglich.
 
-:bulb: "Die Ausgabe des einen Prozesses ist die Eingabe des anderen Prozesses."
+💡 "Die Ausgabe des einen Prozesses ist die Eingabe des anderen Prozesses."
 
 ![Vergleich Pipe vs temporäre Datei](img/vergleich_temp_file_pipe.png)
 
@@ -403,3 +403,6 @@ Betriebssystem ist auch ein Programm. Dadurch können mehrere Betriebssysteme au
 - Gastgebersystem kann noch Programme laufen lassen
 
 ![Hypervisor Type 2](img/hypervisor_t2.png)
+
+Next:
+[Prozesse und Threads](02-ProzesseThreads)

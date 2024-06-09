@@ -33,12 +33,21 @@
 **Inhalt:**
 
 - Scheduling
+- Scheduling-Strategien
 - Deadlocks
-- Vorbeugen von Deadlocks
 
 [LINK](03-SchedulingDeadlocks.md)
 
 ## Kapitel 04
+
+**Inhalt:**
+
+- Mehrere Programme in Ausführung
+- Virtueller Speicher
+- Adressräume
+- Seitenersetzungsalgorithmen
+- Paging
+- Swap-Bereich
 
 [LINK](04-Speicherverwaltung.md)
 

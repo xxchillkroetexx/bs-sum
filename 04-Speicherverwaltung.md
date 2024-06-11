@@ -3,10 +3,10 @@
 - Kapazität wird immer größer
   - Programme wachsen aber schneller als verfügbarer Speicher
 - Verwaltung der Speicherressourcen -> BS
-  ![[zugriffszeiten_speichermedien.png]]
+  ![zugriffszeiten_speichermedien](img/zugriffszeiten_speichermedien.png)
 
 Verschiedenen Speicherkonzepte:
-![[speicherverwaltung_annahmen.png]]
+![speicherverwaltung_annahmen](img/speicherverwaltung_annahmen.png)
 
 - Jeweils nur ein Programm in Ausführung
 
@@ -18,7 +18,7 @@ Verschiedenen Speicherkonzepte:
   - BS speichert den gesamten Inhalt des Speichers in eine Datei
   - BS ließt eine vorhandene Speicherdatei ein und führt das neue Programm aus
 
-## Hardwareunterstütung durch Schutzschlüssel
+## Hardwareunterstützung durch Schutzschlüssel
 
 - Jeder Speicherblock erhält Schutzschlüssel
 - PSW enthält ebenfalls einen Schlüssel
@@ -27,7 +27,7 @@ Verschiedenen Speicherkonzepte:
 ## Relokation
 
 - 2 Programme im Speicher aneinanderreihen
-  ![[speicher_relokation.png]]
+  ![speicher_relokation](img/speicher_relokation.png)
 - Problem:
   - Prozess B springt durch `JMP 28` in den Prozess A
 - Lösung:
@@ -57,7 +57,7 @@ RAM: Räumliches Multiplexing
 
 - Basis-Register: untere Grenze des physischen Speichers
 - Limit-Register: obere Grenze des physischen Speichers
-  ![[Basis_Limit_Register.png]]
+  ![Basis_Limit_Register](img/Basis_Limit_Register.png)
 
 Zugriff auf Basis-/Limit-Register nur durch BS
 
@@ -71,7 +71,7 @@ Zugriff auf Basis-/Limit-Register nur durch BS
   2.  Prozess läuft einige Zeit
   3.  Prozess wird komplett auf Festplatte gespeichert
 - Prozess im Leerlauf können ausgelagert werden
-  ![[swapping_fragmentierung.png]]
+  ![swapping_fragmentierung](img/swapping_fragmentierung.png)
   ➡Es entstehen Speicherlücken
 
 ➡ Prozesse können dynamischen Speicher benötigen
@@ -135,11 +135,11 @@ Vorteile:
 - Auch kleine freie Speicherbereiche sind nutzbar
 - Speicherschutz ergibt sich (fast) automatisch
 - Teile des Prozessadressraums können ausgelagert werden
-  ![[paging_diagram.png]]
+  ![paging_diagram](img/paging_diagram.png)
 
 ### Einträge in Speichertabelle
 
-![[img/entries_page_table.png]]
+![entries_page_table](img/entries_page_table.png)
 
 | Bit                | Funktion                                 |
 | ------------------ | ---------------------------------------- |
@@ -155,7 +155,7 @@ Vorteile:
    - Seite (page): Block im <u>virtuellen</u> Adressraum
    - Seitenrahmen (page frame): Block im <u>physischen</u> Adressraum
 2. Betriebssystem erstellt und verwaltet Seitentabelle - Umsetzungstabelle definiert für jede Seite: - Physische Adresse des entsprechenden Seitenrahmens (falls vorhanden) - Zugriffsrechte
-   ![[paging_example.png]]
+   ![paging_example](img/paging_example.png)
 
 ## Page Fault
 
@@ -222,13 +222,13 @@ Vereinfachter Ablauf:
   - Interner Cache aus Registern
   - Teil der MMU
 - Verwaltung des TLB - CISC (x86) Prozessoren: MMU - RISC Prozessoren: Software (BS)
-  ![[img/translation_lockaside_buffer.png]]
+  ![translation_lockaside_buffer](img/translation_lockaside_buffer.png)
 
 ### 2. Anforderung: Große Speicherbereiche durch mehrstufige Seitentabellen
 
 - Stufe 1: Hauptseitentabelle mit 1024 Einträgen
 - Stufe 2: Seitentabellen mit je 1024 Einträgen
-  ![[img/mehrstufige_seitentabellen.png]]
+  ![mehrstufige_seitentabellen](img/mehrstufige_seitentabellen.png)
 
 ❗Bei 64-Bit Systemen explodiert die Anzahl der Tabellen
 **💡invertierte Tabellen**
@@ -291,7 +291,7 @@ Wechsel:
 
 - Effizientere Implementierung von Second-Chance (Verschieben wird vermieden)
 - Seiten in Ringliste angeordnet, Zeiger auf ältestem Eintrag
-  ![[clock_page_algorithm.png]]
+  ![clock_page_algorithm](img/clock_page_algorithm.png)
 
 Bei Page Fault:
 
@@ -339,7 +339,7 @@ Effiziente implementierbare Näherung an LRU
 Problem: wie findet das BS die Seite, die nicht zum Arbeitsbereich gehört?
 Kriterium für Arbeitsbereich:
 
-- Der Arbeitsbereich ist die Menge der Seiten, die seit den letzten $k$ Speicherzugriffen benutzt wurde (siehe [[#Hintergrund]])
+- Der Arbeitsbereich ist die Menge der Seiten, die seit den letzten $k$ Speicherzugriffen benutzt wurde (siehe [Hintergrund](#Hintergrund))
 
 #### Bestimmung Arbeitsbereich
 
@@ -359,7 +359,7 @@ Nachteil: Schieberegister aktuell zu halten und zu analysieren ist aufwendig!
 #### Hintergrund
 
 $w(k,t)$: Menge der Seiten zur Zeit $t$, die $P$ bei den letzten $k$ Speicherzugriffen benutzt hat
-![[working_set.png]]
+![working_set](img/working_set.png)
 Für große $k$ annähernd konstant, aber noch kleiner als der Prozessadressraum
 
 - Arbeitsbereich im Speicher: Prozess läuft ohne viele Seitenfehler bis zur nächsten Phase seiner Ausführung
@@ -367,7 +367,7 @@ Für große $k$ annähernd konstant, aber noch kleiner als der Prozessadressraum
   - Seitenflattern (Trashing): Seiten werden regelmäßig mit hohen Kosten (Festplatte) ein- und ausgelagert
 - Multiprogrammierung ➡Prozesse werden oft ausgelagert
 
--> [[#Working Set (Arbeitsbereich)]], Prepaging
+-> [Working Set (Arbeitsbereich)](#Working-Set-Clock), Prepaging
 
 #### Anwendung
 
@@ -387,11 +387,11 @@ Für große $k$ annähernd konstant, aber noch kleiner als der Prozessadressraum
 Bei jedem Seitenfehler wird die gesamte Tabelle durchlaufen.
 Guter Algorithmus, aber ineffizient
 
-![[working_set_algo.png]]
+![working_set_algo](img/working_set_algo.png)
 
 ### Working-Set-Clock
 
-Verbindung von [[#Clock]] und [[#Working-Set-Clock]]
+Verbindung von [Clock](#Clock) und [Working Set Clock](#Working-Set-Clock)
 
 💡 In realen Systemen weit verbreitet
 
@@ -412,7 +412,7 @@ Bei Page Fault: Untersuche Seite, auf die der Zeiger zeigt
    - Keine Seite vorgemerkt
      - Irgendeine Seite auslagern
 
-![[working_set_clock.png]]
+![working_set_clock](img/working_set_clock.png)
 
 ## Programmstart
 
@@ -431,7 +431,7 @@ Die demnächst benötigten Seiten werden gleich in den Speicher geladen
 Prozesse beschränken sich in jeder Phase ihrer Ausführung auf einen relativ kleinen Teil ihrer Seiten
 
 ➡nur ein Teil der Seiten muss im Speicher sein
-![[locality_of_reference.png]]
+![locality_of_reference](img/locality_of_reference.png)
 
 ## Fazit:
 
@@ -460,7 +460,7 @@ Prozesse beschränken sich in jeder Phase ihrer Ausführung auf einen relativ kl
   - Führt bei wachsendem Speicher zur Zunahme von Seitenfehlern
     - Trashing, Seitenflattern
 - Global: auch Seiten anderer Prozesse dürfen ausgelagert werden - Dynamische Speicherbereiche - Überwachung der Speicherbereiche durch "PFF" (Page Fault Frequency) - 💡mehr oder weniger Speicher zuteilen?
-  ![[page_fault_frequency.png]]
+  ![page_fault_frequency](img/page_fault_frequency.png)
 
 ### Lastkontrolle
 
@@ -497,7 +497,7 @@ Für große Seiten spricht:
   - Seiten, die Programmtext enthalten, können gemeinsam genutzt werden
   - Seiten mit Daten nicht
 - Verwende getrennte Befehls-Datenräume - Einfluss auf Scheduler: Wenn Prozess 1 beendet wird, aber das Programm von einem anderen Benutzer (Prozess 2) verwendet wird, darf die Programm-Seitentabelle nicht gelöscht werden
-  ![[gemeinsame_seiten.png]]
+  ![gemeinsame_seiten](img/gemeinsame_seiten.png)
 
 ### Bereinigungsstrategien
 
@@ -548,7 +548,7 @@ Für große Seiten spricht:
 2. Alle Seiten im Speicher initialisieren und bei Bedarf in den Swap-Bereich auslagern
 
 **Implementierung**
-![[swap_bereich.png]]
+![swap_bereich](img/swap_bereich.png)
 
 Next:
 [Dateien und Dateisysteme](302.2e-DateienDateisysteme.md)

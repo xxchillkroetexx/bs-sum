@@ -39,11 +39,11 @@
 ### Ausführbare Datei unter UNIX/Linux
 
 - Struktur ist essenziell
-  ![[executable_file_unix.png]]
+  ![executable_file_unix](img/executable_file_unix.png)
 
 ### Bibliotheken-Dateien
 
-![[library_file_unix.png]]
+![library_file_unix](img/library_file_unix.png)
 
 ## Zugriff auf Dateien
 
@@ -83,7 +83,7 @@
 
 - Über eine Baum-Struktur
 - ➡Verzeichnisse
-  ![[hierarchie_dateiverwaltung.png]]
+  ![hierarchie_dateiverwaltung](img/hierarchie_dateiverwaltung.png)
 
 ## Navigation im Verzeichnisbaum
 
@@ -106,7 +106,7 @@
 # Dateisysteme
 
 Datenträger wird in Partitionen eingeteilt
-![[mbr_partition.png]]
+![mbr_partition](img/mbr_partition.png)
 
 ## Master Boot Record (MBR)
 
@@ -123,7 +123,7 @@ Datenträger wird in Partitionen eingeteilt
 | _Boot-Block_             | Programm zum Laden des Betriebssystems                                                              |
 | _SuperBlock_             | Schlüsselparameter des Dateisystems (Typ, MagischeZahl, Anzahl der Blöcke, ...)                     |
 | _Freispeicherverwaltung_ | Informationen über die freien Blöcke im Dateisystem                                                 |
-| _i-Nodes_                | Liste von Datenstrukturen, die alle Informationen über je eine Datei enthalten (siehe [[#i-Nodes]]) |
+| _i-Nodes_                | Liste von Datenstrukturen, die alle Informationen über je eine Datei enthalten (siehe [i-Nodes](#i-nodes)) |
 | _Wurzelverzeichnis_      | Einstiegspunkt in die Baumstruktur des Dateisystems                                                 |
 | _Dateien_                | Datenablage                                                                                         |
 
@@ -132,7 +132,7 @@ Datenträger wird in Partitionen eingeteilt
 ### Ansatz 1: Zusammenhängende Belegung
 
 - Abspeichern als zusammenhängende Menge von Blöcken
-  ![[implementierung_blockdateien.png]]
+  ![implementierung_blockdateien](img/implementierung_blockdateien.png)
 
 _**Vorteile:**_
 
@@ -157,7 +157,7 @@ _**Nachteile:**_
 ### Ansatz 2: Belegung durch Verkettete Liste
 
 - Datei ist verkettete Liste
-  ![[implementierung_verkettete_liste.png]]
+  ![implementierung_verkettete_liste](img/implementierung_verkettete_liste.png)
 
 **_Vorteile:_**
 
@@ -178,7 +178,7 @@ _**Nachteile:**_
 ### Ansatz 3: Belegung durch Verkettete Listen im Arbeitsspeicher
 
 - Dateiallokationstabelle (File Allocation Table = FAT)
-  ![[implementierung_FAT.png]]
+  ![implementierung_FAT](img/implementierung_FAT.png)
 
 **_Vorteile:_**
 
@@ -197,7 +197,7 @@ _**Nachteile:**_
 ### Ansatz 4: i-Nodes
 
 - Datenstruktur mit: - Dateiattributen - Adressen aller Blöcke
-  ![[implementierung_i-nodes.png]]
+  ![implementierung_i-nodes](img/implementierung_i-nodes.png)
 
 **_Vorteile:_**
 
@@ -213,7 +213,7 @@ _**Nachteile:**_
 
 - Verzeichnis = Datei mit Tabelle mit Verzeichniseinträgen
 - Verzeichniseintrag = Informationen zum Auffinden von Plattenblöcken und evtl. über Attribute der Datei - Abbilden von ASCII-Namen auf Datei-Information - Bei zusammenhängender Belegung die Adresse und Größe - Bei verkettenden Listen die Nummer des ersten Blocks - Bei i-Nodes die Nummer des i-Node
-  ![[attribute_inode_verzeichnis.png]]
+  ![attribute_inode_verzeichnis](img/attribute_inode_verzeichnis.png)
 
 ### Erzeugung einer Datei unter Linux
 
@@ -233,7 +233,7 @@ _**Nachteile:**_
 - Große Blöcke verschwenden Platz
 - kleine Blöcke verschwenden Zeit
   ➡ Optimum hängt von der "üblichen Größe" der Dateien ab
-  ![[blockgroesse_vs_datenrate.png]]
+  ![blockgroesse_vs_datenrate](img/blockgroesse_vs_datenrate.png)
 
 ### Freie Blöcke
 
@@ -248,7 +248,7 @@ Blockgröße: 1 kB => 256 32-Bit Plattenblocknummern
 
 - Nur bei voller Platte verbraucht sie mehr Platz als die verkettete Liste
   - 500 GB => 488 Mio. Bit => 60.000 kB
-- Kann als virtueller Speicher verwaltet und seitenweise nachgeladen werden (vgl. [Paging]([[302.2d-Speicherverwaltung#Paging]]))
+- Kann als virtueller Speicher verwaltet und seitenweise nachgeladen werden (vgl. [Paging](302.2d-Speicherverwaltung#Paging))
 
 ## Performanz
 
@@ -260,14 +260,14 @@ Blockgröße: 1 kB => 256 32-Bit Plattenblocknummern
 
 - Cache
   - Blöcke werden gleichzeitig im Speicher gehalten, um schnell darauf zuzugreifen
-  - (vgl. [Paging]([[302.2d-Speicherverwaltung#Paging]]))
+  - (vgl. [Paging](302.2d-Speicherverwaltung#Paging))
 - Vorausschauendes Lesen von Blöcken
   - (Lese $i$, und falls $i+1$ nicht im Cache ist, lese auch $i+1$)
   - Beobachtung: Dateien werden in der Regel sequentiell gelesen
     - Nützlich bei sequenziellem Zugriff
     - Gefährlich bei zufälligem Zugriff
 - Reduzierung der Bewegung des Plattenarms - Integration der Optimierung im Festplatten-Controller
-  ![[reduzierung_bewegung_plattenarm.png]]
+  ![reduzierung_bewegung_plattenarm](img/reduzierung_bewegung_plattenarm.png)
 
 ### Problem
 
@@ -390,24 +390,24 @@ Mögliche weitere Checks:
   - Metadaten
   - 2048 Byte für Daten
 - Persistenter Datenspeicher, nur Lesezugriff
-  ![[iso-9660.png]]
+  ![iso-9660](img/iso-9660.png)
 
 ### MS-DOS Dateisystem (FAT)
 
-![[FAT.png]]
+![FAT](img/FAT.png)
 
 ### UNIX-V7
 
 - Verwendung von I-Node
-  ![[unix-v7_inode.png]]
+  ![unix-v7_inode](img/unix-v7_inode.png)
 
 Dateieintrag in UNIX-V7:
-![[unix-v7_dateieintrag.png]]
+![unix-v7_dateieintrag](img/unix-v7_dateieintrag.png)
 
 💡Im Wurzelverzeichnis stehen die I-Nodes für die Verzeichnisse `/root`, `/bin`, `/home`, ...
 
 Aufruf von `ls /usr/box/mbox`:
-![[unix-v7_i-node_verwendung.png]]
+![unix-v7_i-node_verwendung](img/unix-v7_i-node_verwendung.png)
 
 Next:
 [IO-Hardware](302.2f-IO-Hardware.md)

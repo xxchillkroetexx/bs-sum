@@ -53,8 +53,29 @@
 
 ## Kapitel 05
 
+**Inhalt:**
+
+- Dateien
+- Dateiorganisation
+- Dateisysteme
+
 [LINK](05-DateienDateisysteme.md)
 
 ## Kapitel 06
 
+**Inhalt:**
+
+- E/A-Hardware
+- Hardware-Controller
+- E/A-Software/ Treiber
+
 [LINK](06-IO-Hardware.md)
+
+## Kapitel 07
+
+- Bedrohungen und Schutzziele
+- Schutzmechanismen
+- Realisierung der Zugriffskontrolle
+- Maßnahmen gegen Angriffe
+
+[LINK](07-Sicherheit.md)
